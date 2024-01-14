@@ -12,7 +12,7 @@ function updateTime() {
     );
   }
 
-  //Mexico
+  //Mexico city
   let mexicoCityElement = document.querySelector("#mexico-city");
   if (mexicoCityElement) {
     let mexicoCityDateElement = mexicoCityElement.querySelector(".date");
@@ -21,6 +21,18 @@ function updateTime() {
 
     mexicoCityDateElement.innerHTML = mexicoCityTime.format("MMMM Do YYYY");
     mexicoCityTimeElement.innerHTML = mexicoCityTime.format(
+      "h:mm:ss [<small>]A[</small>]"
+    );
+  }
+  //Berlin
+  let berlinElement = document.querySelector("#berlin");
+  if (berlinElement) {
+    let berlinDateElement = berlinElement.querySelector(".date");
+    let berlinTimeElement = berlinElement.querySelector(".time");
+    let berlinTime = moment().tz("Europe/Berlin");
+
+    berlinDateElement.innerHTML = berlinTime.format("MMMM Do YYYY");
+    berlinTimeElement.innerHTML = berlinTime.format(
       "h:mm:ss [<small>]A[</small>]"
     );
   }
@@ -45,7 +57,7 @@ function updateCity(event) {
           </small></div>
         </div>
         <a href="/">All Cities</a>
-  `;
+        `;
 }
 
 updateTime();
